@@ -1,0 +1,27 @@
+[
+  {
+    "username": "admin",
+    "password": "$2b$10$abcdefghijklmnopqrstuv",
+    "role": "admin"
+  },
+  {
+    "username": "empleado",
+    "password": "$2b$10$abcdefg1234567",
+    "role": "empleado"
+  },
+  {
+    "username": "yordan_nadroy",
+    "password": "$2b$10$s.2TbkWFA08lxHHCyRDqKuv8a2LlpfhL.jO77IMtMgQe60LkVF/5q",
+    "role": "admin"
+  },
+  {
+    "username": "pipi",
+    "password": "$2b$10$Ln3tKcadynadlwsI6MOdx.eENABHFDOd0ff0hDdbUMs9xPOW..qrO",
+    "role": "empleado"
+  },
+  {
+    "username": "pipi",
+    "password": "$2b$10$.94KIE7jQZsNw31Eexo4O.vclkVG2fOdV27xbJux6fCEpUa4dG/QS",
+    "role": "empleado"
+  }
+]
