@@ -1,0 +1,21 @@
+<h1>Datos de Formación</h1>
+<table id="datos-table">
+    <tr>
+        <th>Nombre del Empleado</th>
+        <th>Curso</th>
+        <th>Fecha</th>
+        <th>Acciones</th>
+    </tr>
+    {{#each datos}}
+    <tr>
+        <td>{{this.nombre}}</td>
+        <td>{{this.curso}}</td>
+        <td>{{this.fecha}}</td>
+        <td>
+            <button class="edit-btn" data-id="{{@index}}">Editar</button>
+            <button class="delete-btn" data-id="{{@index}}">Eliminar</button>
+        </td>
+    </tr>
+    {{/each}}
+</table>
+<script src="/app.js"></script>

@@ -1,0 +1,10 @@
+<h1>Reportes y Estadísticas</h1>
+<div id="reportes-container">
+    <p>Total de empleados: {{reporte.totalEmpleados}}</p>
+    <ul>
+        {{#each reporte.cursos}}
+        <li>{{@key}}: {{this}} empleados</li>
+        {{/each}}
+    </ul>
+</div>
+<script src="/app.js"></script>
