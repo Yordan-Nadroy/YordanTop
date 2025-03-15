@@ -1,11 +1,16 @@
-const validarCampos = (req, res, next) => {
-    const errores = [];
-    if (!req.body.username) errores.push('El campo "username" es obligatorio.');
-    if (!req.body.password) errores.push('El campo "password" es obligatorio.');
-    if (errores.length) {
-        return res.status(400).json({ errores });
-    }
-    next();
-};
+const { check, validationResult } = require('express-validator');
 
-module.exports = validarCampos;
+const validarCampos = [
+    check('username', 'El nombre de usuario es obligatorio').not().isEmpty(),
+    check('password', 'La contraseña debe tener al menos 6 caracteres').isLength({ min: 6 }),
+    check('role', 'El rol debe ser admin o empleado').isIn(['admin', 'empleado']),
+    (req, res, next) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+        next();
+    },
+];
+
+module.exports = { validarCampos };

@@ -165,3 +165,26 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 });
+
+const ctx = document.getElementById('chart').getContext('2d');
+
+const chart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Usuario 1', 'Usuario 2', 'Usuario 3'], // Reemplaza con datos dinámicos
+        datasets: [{
+            label: 'Formaciones completadas',
+            data: [12, 19, 3], // Reemplaza con datos dinámicos
+            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+            borderColor: 'rgba(54, 162, 235, 1)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});

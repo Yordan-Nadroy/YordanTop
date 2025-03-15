@@ -1,0 +1,19 @@
+<h1>{{title}}</h1>
+<form action="/formacion" method="POST">
+    <label>Nombre:</label>
+    <input type="text" name="nombre" required>
+    <label>Correo:</label>
+    <input type="email" name="correo" required>
+    <label>Curso:</label>
+    <input type="text" name="curso" required>
+    <label>Fecha:</label>
+    <input type="date" name="fecha" required>
+    <button type="submit">Registrar Formación</button>
+</form>
+
+<h2>Lista de Formaciones</h2>
+<ul>
+    {{#each formaciones}}
+        <li>{{this.nombre}} - {{this.curso}} - {{this.fecha}}</li>
+    {{/each}}
+</ul>

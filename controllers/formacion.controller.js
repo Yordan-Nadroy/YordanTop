@@ -1,25 +1,37 @@
 const Formacion = require('../models/formacion');
 
-// Crear una nueva formación
 const crearFormacion = async (req, res) => {
-    const { nombre, correo, curso, fecha } = req.body;
     try {
+        const { nombre, correo, curso, fecha } = req.body;
         const nuevaFormacion = new Formacion({ nombre, correo, curso, fecha });
         await nuevaFormacion.save();
-        res.status(201).json({ msg: 'Formación creada exitosamente' });
+        res.redirect('/formacion');
     } catch (error) {
-        res.status(500).json({ msg: 'Error al crear formación', error });
+        console.error('Error al crear formación:', error);
+        res.status(500).send('Error interno del servidor');
     }
 };
 
-// Obtener todas las formaciones
 const obtenerFormaciones = async (req, res) => {
     try {
         const formaciones = await Formacion.find();
-        res.status(200).json(formaciones);
+        res.render('formacion', { title: 'Formaciones', formaciones });
     } catch (error) {
-        res.status(500).json({ msg: 'Error al obtener formaciones', error });
+        console.error('Error al obtener formaciones:', error);
+        res.status(500).send('Error interno del servidor');
+    }
+};
+const obtenerSeguimiento = async (req, res) => {
+    try {
+        const usuarios = await Usuario.find();
+        res.render('seguimiento', { title: 'Seguimiento', usuarios });
+    } catch (error) {
+        console.error('Error al obtener datos de seguimiento:', error);
+        res.status(500).send('Error interno del servidor');
     }
 };
 
-module.exports = { crearFormacion, obtenerFormaciones };
+module.exports = { obtenerSeguimiento };
+
+
+module.exports = { crearFormacion, obtenerFormaciones ,obtenerSeguimiento };
